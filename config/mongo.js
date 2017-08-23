@@ -17,7 +17,7 @@ db.on('error', function (err) {
 let classSchema = mongoose.Schema({
 	name: String,
 	desc: String,
-	parent: ObjectId,
+	parent: mongoose.Schema.Types.ObjectId,
 	create_time: { type: Date, default: Date.now }
 });
 
@@ -28,6 +28,8 @@ let classSchema = mongoose.Schema({
  * 		keyword					关键字				 Array
  *		readings  			浏览量				 Number
  *		share						分享数				 Number
+ *		sort						排序					Number
+ *    markdown        源码					String
  * 		content					内容					String
  *		parent		 			所属分类 			 ObjectId
  *		create_time			创建时间 			 Date
@@ -40,8 +42,10 @@ let articleSchema = mongoose.Schema({
 	keyword: Array,
 	readings: Number,
 	share: Number,
+	sort: Number,
+	markdown: String,
 	content: String,
-	parent: ObjectId,
+	parent: mongoose.Schema.Types.ObjectId,
 	create_time: { type: Date, default: Date.now },
 	uptade_time: Date
 });

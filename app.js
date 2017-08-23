@@ -25,6 +25,10 @@ app.use(staticCache('./static', { maxAge: maxAge}));
 const bodyparser = require('koa-bodyparser');
 app.use(bodyparser());
 
+// /* 获取文件 */
+// const koaBody = require('koa-body');
+// app.use(koaBody({ multipart: true }));
+
 /* Nunjucks模板引擎, 根据环境控制是否缓存 */
 let templating = require('./config/templating');
 app.use(templating('views', {

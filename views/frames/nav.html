@@ -1,0 +1,104 @@
+<div class="nav">
+  <div class="search">
+    <input placeholder="输入并搜索" />
+  </div>
+  <div class="nav-main">
+    <ul>
+      <li class="active">
+        <a href="javascript:;">首页</a>
+        <div class="nav-child">
+          <a href="javascript: void(0);">子级</a>
+          <a href="javascript: void(0);">子级</a>
+          <a href="javascript: void(0);">子级</a>
+        </div>
+      </li>
+      <li>
+        <a href="javascript:;">概览</a>
+      </li>
+      <li>
+        <a href="javascript:;">教程</a>
+      </li>
+      <li>
+        <a href="javascript:;">手册</a>
+      </li>
+    </ul>
+  </div>
+  <div class="author"><a href="javascript:;">作者: phuhoang</a></div>
+</div>
+
+
+<style>
+  .nav{
+    width: 300px;
+    height: 100%;
+    color: #364149;
+    background: #fafafa;
+    border-right: 1px solid rgba(0,0,0,.07);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transition: all .25s;
+    -webkit-transition: all .25s;
+    transform: none;
+    -webkit-transform: none;
+  }
+  body.active .nav{
+    transform: translate3d(-300px, 0, 0);
+    -webkit-transform: translate3d(-300px, 0, 0);
+  }
+  .search{
+    padding: 7px;
+    background: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.07);
+  }
+  .search input{
+    width: 100%;
+    padding: 7px;
+    height: 36px;
+    color: #364149;
+    font-size: 14px;
+    line-height: 22px;
+    font-family: inherit;
+    border: 1px solid transparent;
+    opacity: .9;
+  }
+  .nav-main{
+    padding-top: 10px;
+  }
+  .nav-main ul{
+    padding-bottom: 7px;
+    margin-bottom: 7px;
+    border-bottom: 1px solid rgba(0,0,0,.07);
+  }
+  .nav-main li{
+    position: relative;
+  }
+  .nav-main li > a,
+  .author a{
+    display: block;
+    color: rgba(54, 65, 73, .8);
+    font-size: 15px;
+    padding: 10px 20px;
+    line-height: 20px;
+  }
+  .nav-main li.active > a{
+    color: #008cff;
+  }
+  .nav-main li a:hover,
+  .author a:hover{
+    text-decoration: underline;
+  }
+  .nav-main li.active .nav-child{
+    height: auto;
+  }
+  .nav-child{
+    height: 0;
+    overflow: hidden;
+  }
+  .nav-child a{
+    display: block;
+    padding: 6px 35px;
+    font-size: 14px;
+  }
+</style>

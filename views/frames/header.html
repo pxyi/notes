@@ -1,0 +1,82 @@
+<div class="header">
+  <div class="header-box">
+    <div class="header-opera">
+      <a href="javascript: void(0);" id="navPull"><i class="icon icon-liebiao"></i></a>
+      <a href="javascript: void(0);"><i class="icon icon-ziti"></i></a>
+    </div>
+    <div class="header-title">{{title}}</div>
+    <div class="header-share">
+      <a href="javascript: void(0);"><i class="icon icon-weichat"></i></a>
+      <a href="javascript: void(0);"><i class="icon icon-xinlang"></i></a>
+      <a href="javascript: void(0);"><i class="icon icon-Qzone"></i></a>
+    </div>
+</div>
+</div>
+<style>
+  .header{
+    width: 100%;
+    height: 50px;
+    padding-left: 300px;
+    line-height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all .25s;
+    -webkit-transition: all .25s;
+    z-index: 1;
+  }
+  body.active .header{
+    padding-left: 0;
+  }
+  .header-box{
+    padding: 0 15px;
+    position: relative;
+  }
+  .header-opera{
+    float: left;
+    line-height: 50px;
+    position: relative;
+    z-index: 7;
+  }
+  .header-opera a,
+  .header-share a{
+    display: inline-block;
+    transition: all .25s;
+    -webkit-transition: all .25s;
+  }
+  .header-opera a{
+    padding: 0 10px;
+    opacity: .3;
+  }
+  .header-share{
+    float: right;
+    position: relative;
+    z-index: 7;
+  }
+  .header-opera a:hover,
+  .header-share a:hover{
+    opacity: .8;
+  }
+  .header-title{
+    width: 100%;
+    color: rgba(0,0,0, .4);
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 50px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 6;
+  }
+  .header-share a{
+    padding: 0 4px;
+    opacity: .2;
+  }
+  .header-share a .icon{
+    font-size: 22px;
+  }
+</style>
+<script>
+  $('#navPull').on('click', function () { $('body').toggleClass('active'); })
+</script>

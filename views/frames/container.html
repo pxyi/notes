@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="container-box">
+    <div class="prev-btn"><a href="javascript: void(0);"><i class="icon icon-xiangzuojiantou"></i></a></div>
+    <div class="next-btn"><a href="javascript: void(0);"><i class="icon icon-xiangyoujiantou"></i></a></div>
+    <div class="content"></div>
+  </div>
+</div>
+
+<style>
+  .container{
+    width: 100%;
+    height: 100%;
+    padding: 50px 0 0 300px;
+    transition: all .25s;
+    -webkit-transition: all .25s;
+    position: relative;
+    overflow: hidden;
+  }
+  body.active .container{
+    padding-left: 0;
+  }
+  .container-box{
+    height: 100%;
+    padding: 15px 100px;
+    -webkit-overflow-scrolling: touch;
+    overflow: auto;
+    position: relative
+  }
+  .prev-btn,
+  .next-btn{
+    width: 100px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+  }
+  .prev-btn a,
+  .next-btn a{
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -20px;
+    opacity: .2;
+    z-index: 7;
+    transition: all .25s;
+    -webkit-transition: all .25s;
+  }
+  .prev-btn a:hover,
+  .next-btn a:hover{
+    opacity: .8;
+  }
+  .prev-btn i,
+  .next-btn i{
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .prev-btn{
+    left: 0;
+  }
+  .next-btn{
+    right: 0;
+  }
+  .content{
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+</style>

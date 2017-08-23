@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% include "header.html" %}
+  {% include "./frames/head.html" %}
   <title>{{title}}</title>
 </head>
 <body>
-  <div>{{name}}</div>
+<!-- header -->
+{% include "./frames/header.html" %}
+
+<!-- nav -->
+{% include "./frames/nav.html" %}
+
+<!-- container -->
+{% include "./frames/container.html" %}
+
+<!-- footer -->
+{% include "./frames/footer.html" %}
 </body>
 </html>

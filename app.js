@@ -1,9 +1,6 @@
 const Koa = require('koa');
 const app = new Koa();
 
-
-
-
 /* 记录URL以及页面执行时间 */
 app.use(async (ctx, next) => {
     let start = new Date().getTime();
@@ -15,6 +12,7 @@ app.use(async (ctx, next) => {
 /* 是否为开发环境 */
 const isProduction = process.env.NODE_ENV === 'production';
 
+/* 启用gzip压缩 */
 var gzip = require('koa-gzip');
 app.use(gzip());
 
@@ -39,8 +37,8 @@ const routes = require('./routes/routes');
 app.use(routes());
 
 
-/* 3001端口启动 */
-let port = process.env.NODE_PORT || 3001;
+/* 2800端口启动 */
+let port = process.env.NODE_PORT || 2800;
 let server = app.listen(port, 'localhost', () => {
-	console.log(`Server at running localhost:${port}`)
+	console.log(`Server at running http://localhost:${port}`)
 });

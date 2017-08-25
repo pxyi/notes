@@ -1,0 +1,40 @@
+@import 'src/scss/global.scss';
+@import 'src/scss/mixins.scss';
+
+.ui-loading{
+	visibility: hidden;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.4);
+	position: absolute;
+	top: 0;
+  left: 0;
+  @include transition(all .25s);
+  &.active{
+    opacity: 1;
+    visibility: visible;
+  }
+  i{
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -45px;
+    margin-left: -15px;
+    transform-origin: 14px 15px;
+    @include animation(rotate 1s linear infinite);
+  }
+}
+@keyframes rotate{
+  0%  {transform: none;}
+  100%{transform: rotate(360deg)}
+}
+@-webkit-keyframes rotate{
+  0%  {-webkit-transform: none;}
+  100%{-webkit-transform: rotate(360deg)}
+}

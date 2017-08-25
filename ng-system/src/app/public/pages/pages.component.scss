@@ -1,0 +1,38 @@
+@import 'src/scss/global.scss';
+@import 'src/scss/mixins.scss';
+
+$pageHeight: 35px;
+.ui-pages{
+  height: $pageHeight;
+  & > *{
+    display: inline-block;
+  }
+  .ui-pages-cell{
+    a{
+      display: inline-block;
+      height: $pageHeight;
+      min-width: $pageHeight;
+      padding: 0 8px;
+      // color: $themeBlue;
+      text-align: center;
+      line-height: $pageHeight;
+      margin-left: -1px;
+      position: relative;
+      border: solid 1px #e3ebf3;
+      @include transition(all .25s);
+      &.active,
+      &:hover:not(.ui-page-ellipsis){
+        color: #fff;
+        background: $themeBlue;
+      }
+      &:first-child{
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+      }
+      &:last-child{
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+      }
+    }
+  }
+}

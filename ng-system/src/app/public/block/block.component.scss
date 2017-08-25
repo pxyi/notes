@@ -1,0 +1,14 @@
+@import 'src/scss/mixins.scss';
+.ui-block-button{
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  i{
+    line-height: 18px;
+  }
+}
+.ui-slide-box{
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+}

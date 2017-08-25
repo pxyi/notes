@@ -1,0 +1,12 @@
+<div [@slides]="slide" [@fullScreen]="fixed" [hidden]="close" class="ui-slide-box">
+  <div class="ui-block-button" [hidden]="readonly">
+    <a href="javascript:;" (click)="blockSlide()"><i class="icon-moreunfold ui-mg-col-5"></i></a>
+    <a href="javascript:;" (click)="showLoading()"><i class="icon-refresh font-14 ui-mg-col-5"></i></a>
+    <a href="javascript:;" (click)="fullScreen()"><i class="icon-quanping font-15 ui-mg-col-5"></i></a>
+    <a href="javascript:;" (click)="close = true"><i class="icon-cuowu font-14 ui-mg-col-5"></i></a>
+  </div>
+  <ng-content></ng-content>
+  <div class="ui-block-loading" [class.active]="blockLoading">
+    <i class="icon-iconfont31shuaxin"></i>
+  </div>
+</div>

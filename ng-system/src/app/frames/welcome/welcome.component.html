@@ -1,0 +1,128 @@
+<div class="ui-welcome-title">
+  <ul>
+    <li class="ui-wd-3">
+      <a href="javascript:;">
+        <i class="icon-survey"></i>
+        标题
+      </a>
+    </li>
+    <li class="ui-wd-3">
+      <a href="javascript:;">
+        <i class="icon-favorite"></i>
+        标题
+      </a>
+    </li>
+    <li class="ui-wd-3">
+      <a href="javascript:;">
+        <i class="icon-set"></i>
+        标题
+      </a>
+    </li>
+    <li class="ui-wd-3" (click)="loading = !loading">
+      <a href="javascript:;">
+        <i class="icon-all"></i>
+        标题
+    </a>
+    </li>
+  </ul>
+</div>
+<div class="echarts">
+  <div class="ui-wd-12">
+    <app-block [(blockLoading)]="loading">
+        <div class="ui-block-title">
+          <span>模拟数据</span>
+        </div>
+        <div class="demo-chart">
+          <div echarts [options]="chartOption"></div>
+        </div>
+    </app-block>
+  </div>
+  <div class="ui-wd-8">
+    <app-block>
+      <div class="ui-block-title">
+        <span>数据表格</span>
+      </div>
+      <div>
+        <table class="ui-table">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>标题</th>
+              <th>描述</th>
+              <th>状态</th>
+              <th>金额</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+            </tr>
+            <tr>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+            </tr>
+            <tr>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+            </tr>
+            <tr>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+            </tr>
+            <tr>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+            </tr>
+            <tr>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+            </tr>
+            <tr>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+            </tr>
+            <tr>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-block>
+  </div>
+  <div class="ui-wd-4">
+    <app-block [readonly]="true">
+      <div class="ui-block-title">
+        <span>常规柱状图</span>
+      </div>
+      <div class="demo-chart">
+        <div echarts [options]="zztOption"></div>
+      </div>
+    </app-block>
+  </div>
+</div>

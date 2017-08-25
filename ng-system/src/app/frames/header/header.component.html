@@ -1,0 +1,36 @@
+<div class="ui-header">
+  <div class="ui-logo">
+    <img src="assets/images/logo.png" alt="logo">
+  </div>
+  <div class="ui-inform-switch" (click)="inforSwitch()"><p></p><p></p><p></p></div>
+  <div class="ui-inform" [@inform]="informSwitch">
+    <div class="ui-head-control">
+      <div class="ui-navbar">
+        <a href="javascript:;" id="navbar"><i class="icon-liebiao"></i></a>
+        <a href="javascript:;" id="fullScreen"><i class="icon-quanping font-18 ui-mg-col-20"></i></a>
+        <a href="javascript:;" (click)="searchShow()"><i class="icon-search font-17 ui-mg-col-20"></i></a>
+      </div>
+      <div class="ui-search-input" [@search]="searchAnimate">
+        <input type="text" placeholder="请输入想要搜索的内容" #searchInput (keyup.enter)="searchChange(searchInput.value)">
+      </div>
+      <div class="ui-users">
+        <div class="ui-user-cell">
+          <img src="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/images/portrait/small/avatar-s-1.png" alt="">
+          <span>管理员</span><i class="icon-moreunfold font-14"></i>
+        </div>
+        <div class="ui-user-email">
+          <a href="javascript:;">
+            <i class="icon-email"></i>
+            <span>6</span>    
+          </a>
+        </div>
+        <div class="ui-user-message">
+          <a href="javascript:;">
+            <i class="icon-comments"></i>
+            <span>12</span>  
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

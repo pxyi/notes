@@ -1,0 +1,9 @@
+<div class="ui-confirm-box" [class.active]="confirmService.isShow">
+	<div>
+		<h2>提示: {{confirmService.confirmText}}</h2>
+		<div>
+			<a href="javascript: ;" class="ui-btn blue" (click)="confirmService.confirmTrue()">确定</a>
+			<a href="javascript: ;" class="ui-btn error" (click)="confirmService.isShow = false">取消</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,193 @@
+@import 'src/scss/global.scss';
+@import 'src/scss/mixins.scss';
+
+.ui-header{
+  width: 100%;
+  height: $headerHeight + 1;
+  background: #fff;
+  border-bottom: solid 1px #e4e7ed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  @include box-shadow(2px 4px 20px -4px rgba(0,0,0,.1));
+  &.active{
+    .ui-logo{
+      width: 60px;
+      text-indent: 13px;
+      overflow: hidden;
+    }
+    .ui-inform{
+      padding-left: 60px;
+    }
+  }
+  .ui-logo{
+    float: left;
+    width: $navWidth;
+    height: $headerHeight;
+    line-height: $headerHeight;
+    text-indent: 30px;
+    & > img{
+      height: 36px;
+      display: inline-block;
+      vertical-align: middle
+    }
+    @include transition(all .25s);
+  }
+  .ui-inform-switch{
+    display: none;
+  }
+  .ui-inform{
+    width: 100%;
+    padding-left: $navWidth;
+    line-height: $headerHeight;
+    @include transition(all .25s);
+  }
+  .ui-head-control{
+    height: $headerHeight;
+    color: #414c62;
+    margin-left: 35px;
+    line-height: $headerHeight;
+    & > div{
+      float: left;
+    }
+  }
+  .ui-navbar{
+    height: $headerHeight;
+  }
+  .ui-search-input{
+    width: 0;
+    margin-top: 13px;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: solid 1px #404E67;
+    overflow: hidden;
+    & > input{
+      width: 180x;
+      padding: 0 10px;
+      border: none;
+      color: #404E67;
+      font-size: 13px;
+    }
+  }
+
+  .ui-users{
+    float: right !important;
+    height: $headerHeight;
+    line-height: $headerHeight;
+    & > div{
+      float: right;
+    }
+    .ui-user-cell{
+      padding-right: 20px;
+      padding-left: 10px;
+      cursor: pointer;
+      &:hover span{
+        color: #626E82;
+      }
+      img{
+        height: 30px;
+        border-radius: 50%;
+        vertical-align: middle;
+      }
+      & > *{
+        display: inline-block;
+        margin-right: 3px;
+      }
+    }
+    .ui-user-email,
+    .ui-user-message{
+      padding: 0 12px;
+      a{
+        display: block;
+        position: relative;
+        white-space:nowrap;
+        &:hover i{
+          color: #626E82;
+        }
+      }
+      span{
+        display: inline-block;
+        padding: 4px 7px;
+        color: #fff;
+        font-size: 12px;
+        line-height: 12px;
+        background: #f29c37;
+        border-radius: 12px;
+        position: relative;
+        margin-top: -22px;
+        margin-left: -13px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+/* 小显示器 */
+@media (max-width: $screen-lg){
+
+}
+/* 平板 */
+@media (max-width: $screen-md){
+  .ui-header.active{
+    .ui-logo{
+      width: 240px;
+      text-indent: 30px;
+    }
+    .ui-inform{
+      padding-left: 240px;
+    }
+  }
+}
+/* 手机 */
+@media (max-width: $screen-sm){
+  .ui-header{
+    .ui-logo{
+      width: 100% !important;
+      text-indent: 0 !important;
+      text-align: center !important;
+    }
+    .ui-inform-switch{
+      display: block;
+      padding-top: 16px;
+      width: $headerHeight;
+      height: $headerHeight;
+      position: fixed;
+      top: 0;
+      right: 0;
+      p{
+        display: block;
+        width: 5px;
+        height: 5px;
+        margin: 0 auto 3px;
+        border-radius: 50%;
+        background: $fontColor;
+      }
+    }
+    .ui-inform{
+      width: 100%;
+      height: 0;
+      padding: 0 !important;
+      background: #fff;
+      position: fixed;
+      top: $headerHeight + 1;
+      left: 0;
+      overflow: hidden;
+      .ui-head-control{
+        margin: 0;
+      }
+      #navbar{
+        width: $headerHeight;
+        height: $headerHeight;
+        line-height: $headerHeight;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      #fullScreen{
+        display: none;
+      }
+    }
+  }
+}

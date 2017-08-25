@@ -1,0 +1,111 @@
+@import 'global.scss';
+@import 'mixins.scss';
+
+.ui-query{
+  @extend .clear;
+  padding: 20px 20px 10px;
+  background: #fff;
+  border-bottom: solid 1px #eee;
+  .ui-item{
+    width: 20%;
+    float: left;
+    .ui-label{
+      width: 108px;
+      float: left;
+      text-align: right;
+      padding-right: 10px;
+    }
+    .ui-inline{
+      width: 100%;
+      position: relative;
+      padding-left: 108px;
+    }
+    &.ui-linkage{
+      width: auto;
+      .ui-inline{
+        @extend .clear;
+        input,
+        select{
+          height: 100%;
+          border: none;
+          width: 120px;
+          float: left;
+        }
+        & > div {
+          border-top: solid 1px $borderColor;
+          border-bottom: solid 1px $borderColor;
+        }
+        & > div:first-child{
+          border-left: solid 1px $borderColor;
+          border-top-left-radius: 3px;
+          border-bottom-left-radius: 3px;
+        }
+        & > div:last-child{
+          border-right: solid 1px $borderColor;
+          border-top-right-radius: 3px;
+          border-bottom-right-radius: 3px;
+        }
+        & > div{
+          height: 40px;
+          float: left;
+          position: relative;
+        }
+        & > .ui-to{
+          line-height: 40px;
+          padding: 0 5px;
+          border-left: solid 1px $borderColor;
+          border-right: solid 1px $borderColor;
+        }
+      }
+    }
+  }
+  .ui-query-btn{
+    padding-left: 10px;
+    float: right;
+  }
+}
+.ui-body-table{
+  padding: 20px;
+  background: #fff;
+  border-bottom: solid 1px #eee;
+  position: relative;
+}
+.ui-no-list{
+  height: 80px;
+  color: #9fa7b6;
+  line-height: 80px;
+  text-align: center;
+}
+.ui-table-btn{
+  padding-bottom: 20px;
+  text-align: right;
+}
+
+@media (max-width: 1660px){
+  .ui-query{
+    .ui-item{
+      width: 25%;
+    }
+  }
+}
+@media (max-width: 1366px){
+  .ui-query{
+    .ui-item{
+      width: 33.333333%;
+    }
+  }
+}
+@media (max-width: $screen-sm - 1){
+  .ui-query{
+    .ui-item{
+        width: 50%;
+    }
+  }
+}
+@media (max-width: 375px){
+  .ui-query{
+    .ui-item{
+        width: 100%;
+    }
+  }
+}

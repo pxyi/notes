@@ -1,0 +1,57 @@
+/* 
+ *  name: 公共方法
+ *  author: phuhoang
+ */
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin animation($animation...) {
+  -webkit-animation: $animation;
+       -o-animation: $animation;
+          animation: $animation;
+}
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+     -moz-box-sizing: $boxmodel;
+          box-sizing: $boxmodel;
+}
+
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+       -o-transition: $transition;
+          transition: $transition;
+}
+
+@mixin transform($transform...) {
+  -webkit-transform: $transform;
+     -moz-transform: $transform;
+      -ms-transform: $transform;
+          transform: $transform;
+}
+
+@mixin transform-origin($origin...) {
+  -webkit-transform-origin: $origin;
+     -moz-transform-origin: $origin;
+      -ms-transform-origin: $origin;
+          transform-origin: $origin;
+}
+
+/* top and left center */
+@mixin tlcenter($width, $height) {
+	width: $width;
+	height: $height;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: $height / 2;
+	margin-left: $width / 2;
+}

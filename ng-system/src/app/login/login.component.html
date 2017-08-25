@@ -1,0 +1,28 @@
+<div class="ui-login">
+	<div class="ui-login-box">
+		<div class="ui-logo">
+    	<img src="assets/images/logo.png" alt="logo">
+    </div>
+    <div class="ui-login-cell ui-form">
+    	<ul>
+    		<li>
+          <div class="ui-relative">
+            <input type="text" class="ui-input" icon="left" [(ngModel)]="username" placeholder="请输入用户名">
+            <i class="icon-account"></i>
+          </div>
+    		</li>
+    		<li>
+          <div class="ui-relative">
+            <input type="text" class="ui-input" id="passWord" icon="left" [(ngModel)]="userpwd" (keyup.enter)="login()" placeholder="请输入密码">
+            <i class="icon-password"></i>
+          </div>
+    		</li>
+			</ul>
+			<div class="ui-remember"><input type="checkbox" id="remember" [(ngModel)]="remember"><label for="remember">记住我</label></div>
+    	<div>
+    		<a href="javascript: ;" class="ui-btn" (click)="login()">登录</a>
+			</div>
+			<div class="ui-login-error">{{resInfo}}</div>
+    </div>
+	</div>
+</div>

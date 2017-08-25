@@ -1,0 +1,139 @@
+<div class="ui-title">列表页</div>
+<div class="ui-form ui-query">
+  <div class="ui-item">
+    <div class="ui-label">文本框</div>
+    <div class="ui-inline">
+      <input type="text" class="ui-input">
+    </div>
+  </div>
+  <div class="ui-item">
+    <div class="ui-label">文本框六个字</div>
+    <div class="ui-inline">
+        <app-datepicker 
+          [id]="'queryTime'" 
+          [minValue]="'2017-08-14'" 
+          [maxValue]="'2017-08-20'" 
+          [(value)]="query.time">
+        </app-datepicker>
+    </div>
+  </div>
+  <div class="ui-item">
+    <div class="ui-label">文本框六个字</div>
+    <div class="ui-inline">
+      <select class="ui-select xiala">
+        <option value="">北京</option>
+        <option value="">上海</option>
+        <option value="">广州</option>
+      </select>
+      <i class="icon-xiala"></i>
+    </div>
+  </div>
+  <div class="ui-item">
+    <div class="ui-label">文本框六个字</div>
+    <div class="ui-inline">
+      <input type="text" class="ui-input">
+    </div>
+  </div>
+  <div class="ui-item">
+    <div class="ui-label">文本框六个字</div>
+    <div class="ui-inline">
+      <input type="text" class="ui-input">
+    </div>
+  </div>
+  <div class="ui-item ui-linkage">
+    <div class="ui-label">文本框六个字</div>
+    <div class="ui-inline">
+      <div>
+          <app-datepicker 
+            [id]="'queryTime1'" 
+            [limit]="{min: 'queryTime2'}" 
+            [(value)]="query.start">
+          </app-datepicker>
+      </div>
+      <div class="ui-to">至</div>
+      <div>
+          <app-datepicker 
+            [id]="'queryTime2'" 
+            [limit]="{max: 'queryTime1'}" 
+            [(value)]="query.end">
+          </app-datepicker>
+      </div>
+      <div>
+      </div>
+    </div>
+  </div>
+  <div class="ui-item ui-linkage">
+    <div class="ui-label">省市区</div>
+    <div class="ui-inline">
+      <div>
+        <select class="ui-select xiala">
+          <option value="">归属地区</option>
+        </select>
+        <i class="icon-xiala"></i>
+      </div>
+      <div class="ui-to">至</div>
+      <div>
+        <select class="ui-select xiala">
+          <option value="">归属地区</option>
+        </select>
+        <i class="icon-xiala"></i>
+      </div>
+      <div class="ui-to">至</div>
+      <div>
+        <select class="ui-select xiala">
+          <option value="">归属地区</option>
+        </select>
+        <i class="icon-xiala"></i>
+      </div>
+    </div>
+  </div>
+  <div class="ui-query-btn">
+    <a href="javascript: void(0);" class="ui-btn" (click)="$query()">查询</a>
+  </div>
+</div>
+<div class="ui-body-table">
+  <div class="ui-table-btn">
+    <a href="javascript: void(0);" class="ui-btn small success" [routerLink]="['/home/details', 0]">新增</a>
+  </div>
+  <table class="ui-table" ui-border ui-hover>
+    <thead>
+      <tr>
+        <th>
+          <div class="ui-checkbox-box">
+            <input type="checkbox" id="checkAll">
+            <label for="checkAll"></label>
+          </div>
+        </th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>描述</th>
+        <th>状态</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data?.result.list; let i = index;">
+        <td>
+          <div class="ui-checkbox-box">
+            <input type="checkbox" id="check{{i}}">
+            <label for="check{{i}}"></label>
+          </div>
+          </td>
+        <td>{{item?.name}}</td>
+        <td>{{item?.age}}</td>
+        <td>{{item?.desc}}</td>
+        <td><a href="javascript: void(0);" class="ui-btn super" [ngClass]="item?.status ? 'success' : 'error'">{{item?.status ? '正常' : '禁用'}}</a></td>
+        <td>
+          <a href="javascript: void(0);" class="ui-btn blue super" [routerLink]="['/home/details', i]">查看</a>
+          <a href="javascript: void(0);" class="ui-btn error super">删除</a>
+        </td>
+      </tr>
+      <tr *ngIf="!data" class="ui-no-list">
+        <td colspan="6">暂无数据...</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="ui-pd-20">
+    <app-pages [url]="'http://192.168.1.99:3000/list'" [query]="query" [(value)]="data"></app-pages>
+  </div>
+</div>

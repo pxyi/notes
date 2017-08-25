@@ -1,0 +1,43 @@
+@import 'global.scss';
+
+.ui-color-success{
+  color: $statusColor1 !important;
+}
+.ui-color-error{
+  color: $statusColor3 !important;
+}
+.ui-color-prompt{
+  color: $statusColor4 !important;
+}
+.ui-color-blue{
+  color: $statusColor2 !important;
+}
+.ui-color-green{
+  color: $statusColor5 !important;
+}
+
+.ui-bg-success{
+  color: #fff !important;
+  padding: 0 3px;
+  background: $statusColor1 !important;
+}
+.ui-bg-error{
+  color: #fff !important;
+  padding: 0 3px;
+  background: $statusColor3 !important;
+}
+.ui-bg-prompt{
+  color: #fff !important;
+  padding: 0 3px;
+  background: $statusColor4 !important;
+}
+.ui-bg-blue{
+  color: #fff !important;
+  padding: 0 3px;
+  background: $statusColor2 !important;
+}
+.ui-bg-green{
+  color: #fff !important;
+  padding: 0 3px;
+  background: $statusColor5 !important;
+}

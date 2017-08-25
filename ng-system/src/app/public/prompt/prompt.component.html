@@ -1,0 +1,8 @@
+<div class="ui-prompt-box" [class.active]="promptService.isShow">
+	<div>
+		<h2>提示: {{promptService.promptText}}</h2>
+		<div>
+		<a href="javascript: ;" class="ui-btn blue" (click)="promptService.hide()">知道了</a>
+		</div>
+	</div>
+</div>

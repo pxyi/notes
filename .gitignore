@@ -1,2 +1,16 @@
 node_modules/
 mongoData/
+
+
+# ng2
+ng-system/node_modules/
+ng-system/dist/
+
+
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json

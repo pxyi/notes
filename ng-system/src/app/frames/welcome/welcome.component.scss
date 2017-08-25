@@ -1,0 +1,35 @@
+@import 'src/scss/global.scss';
+
+.ui-welcome-title{
+  margin-bottom: 25px;
+  overflow: hidden;
+  li a{
+    display: block;
+    color: #fff;
+    font-size: 30px;
+    line-height: 120px;
+    text-align: center;
+    background: $themeBlue;
+    i{
+      font-size: 48px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+  }
+}
+
+.demo-chart{
+  height: 380px;
+  background: #fff;
+  & > div{
+    height: 380px;
+  }
+}
+
+.echarts > div {
+  margin-bottom: 25px;
+
+}
+.ui-table{
+  background: #fff;
+}

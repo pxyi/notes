@@ -11,7 +11,6 @@ let article = async (ctx, next) => {
   console.log(ctx.params.id)
   let clasItems = await db.classModel.find();
   let article = await db.articleModel.findOne({'_id': ctx.params.id});
-  console.log(article)
   ctx.render('index.html',{
     clasItems: clasItems,
     article: article

@@ -1,0 +1,12 @@
+@import 'src/scss/global.scss';
+.ui-footer{
+  width: $navWidth;
+  height: $footerHeight;
+  color: #c9cfd9;
+  font-size: 12px;
+  line-height: $footerHeight;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 11;
+}

@@ -1,0 +1,18 @@
+@import 'global.scss';
+@import 'mixins.scss';
+
+.ui-title{
+  height: 50px;
+  font-size: 18px;
+  line-height: 50px;
+  text-indent: 20px;
+  background: #fff;
+  border-left: solid 5px $themeBlue;
+  border-bottom: solid 1px #eee;
+}
+.ui-block-title{
+  font-size: 18px;
+  line-height: 18px;
+  padding: 20px;
+  background: #fff;
+}

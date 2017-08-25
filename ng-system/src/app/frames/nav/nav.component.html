@@ -1,0 +1,15 @@
+<div class="ui-nav">
+  <ul>
+    <li *ngFor="let item of navItems; let i = index" [class.active]="i == hasFocus">
+      <a href="javascript: ;" [class.ui-has-sub]="item.list" (click)="clickNav(i)">
+        <i [ngClass]=[item.icon]></i>
+        <span>{{item.title}}</span>
+      </a>
+      <ol *ngIf="item.list" [style.height]="i == hasFocus && item.list ? (item.list.length * 45) + 'px' : '0'">
+        <li *ngFor="let list of item.list; let j = index;">
+          <a href="javascript:;" [routerLink]="[list.url]" (click)="listFocus(list.url)" [class.active]="childFocus == list.url"><span>{{list.title}}</span></a>
+        </li>
+      </ol>
+    </li>
+  </ul>
+</div>

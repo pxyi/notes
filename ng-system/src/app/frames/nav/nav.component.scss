@@ -1,0 +1,199 @@
+@import 'src/scss/global.scss';
+@import 'src/scss/mixins.scss';
+
+$navFontColor: #2c3648;     // nav 字体颜色
+$navLiHoverBg: #f5f5f5;     // nav 鼠标滑过背景颜色
+
+.ui-nav{
+  width: $navWidth;
+  height: 100%;
+  padding-top: $headerHeight;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  @include transition(all .25s);
+  &.active{
+    width: 60px;
+    ul > li > a{
+      &::before{
+        opacity: 0;
+        visibility: hidden;
+      }
+      span{
+        display: block;
+        width: 200px;
+        padding: 0 15px;
+        color: #fff;
+        font-size: 13px;
+        line-height: 45px;
+        white-space: nowrap;
+        background: $themeBlue;
+        position: absolute;
+        top: 0;
+        left: 56px;
+        opacity: 0;
+        visibility: hidden;
+        @include transform(translate3d(-20px, 0, 0));
+        &::after{
+          display: block;
+          content: '';
+          width: 0;
+          height: 0;
+          border-width: 7px;
+          border-style: solid;
+          border-top-color: rgba(0, 0, 0, 0);
+          border-left-color: rgba(0, 0, 0, 0);
+          border-right-color: $themeBlue;
+          border-bottom-color: rgba(0, 0, 0, 0);
+          position: absolute;
+          top: 50%;
+          left: 0;
+          margin-left: -14px;
+          margin-top: -7px;
+        }
+      }
+    }
+    li:hover{
+      span,
+      ol{
+        opacity: 1 !important;
+        visibility: visible !important;
+        @include transform(none !important);
+        li:hover{
+          background: #f0f0f0;
+        }
+      }
+    }
+    ol{
+      width: 200px;
+      background: #fff;
+      position: absolute;
+      top: 45px;
+      left: 56px;
+      opacity: 0;
+      visibility: hidden;
+      @include transform(translate3d(-20px, 0, 0));
+      a{
+        padding-left: 30px !important;
+        &:hover{
+          padding-left: 35px !important;
+        }
+      }
+    }
+  }
+  ul > li{
+    border-left: solid 4px transparent;
+    position: relative;
+  }
+  li{
+    color: $navFontColor;
+    & > a{
+      display: block;
+      height: 45px;
+      padding: 10px 30px 10px 18px;
+      line-height: 25px;
+      position: relative;
+      &:hover{
+        background: $navLiHoverBg;
+      }
+      &.ui-has-sub::before{
+        content: "\e6a6";
+        display: block;
+        line-height: 25px;
+        font-family: 'iconfont';
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        @include transition(all .25s);
+        @include transform(rotate(-90deg));
+      }
+      i {
+        float: left;
+        margin-right: 12px;
+        font-size: 14px;
+      }
+      span{
+        @include transition(all .25s);
+      }
+    }
+    & > ol{
+      height: 0;
+      overflow: hidden;
+      @include transition(all .25s);
+      li a{
+        padding-left: 50px;
+        &:hover{
+          padding-left: 60px;
+        }
+        &.active span{
+          color: $themeBlue !important;
+        }
+      }
+    }
+    &.active{
+      border-left-color: $themeBlue !important;
+      & > a{
+        background: $navLiHoverBg;
+        &.ui-has-sub::before{
+          @include transform(none);
+        }
+      }
+    }
+  }
+  ol{
+    @include transition(all .25s);
+    a{
+      @include transition(all .25s);
+    }
+  }
+
+}
+
+/* 平板以上 */
+@media (min-width: $screen-md + 1){
+  .ui-nav.active li > ol{
+    height: auto !important;
+  }
+}
+/* 小显示器 */
+@media (max-width: $screen-lg){
+
+}
+/* 平板 */
+@media (max-width: $screen-md){
+  .ui-nav{
+    width: 240px !important;
+    @include transform(translate3d(-240px, 0, 0));
+    &.active{
+      @include transform(none);
+    }
+    a span{
+      display: inline !important;
+      color: $navFontColor !important;
+      line-height: 1 !important;
+      padding: 0 !important;
+      position: relative!important;
+      left: auto !important;
+      background: none !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      &::after{
+        display: none !important;
+      }
+    }
+    li ol{
+      width: 100% !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      position: relative !important;
+      top: auto !important;
+      left: auto !important;
+      @include transform(none !important);
+    }
+  }
+}
+/* 手机 */
+@media (max-width: $screen-sm){
+}

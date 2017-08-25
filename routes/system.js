@@ -1,9 +1,12 @@
 const db = require('../config/mongo');
 
-let system = async (ctx, next) => {
+let systemList = async (ctx, next) => {
+  ctx.render('system/list.html')
+}
+
+let systemDetails = async (ctx, next) => {
   let data = await db.classModel.find();
-  console.log(data);
-  ctx.render('system/admin.html', {
+  ctx.render('system/details.html', {
     classItems: data
   })
 }
@@ -27,7 +30,8 @@ let upfile = async (ctx, next) => {
 }
 
 module.exports = {
-  'GET /system/:id': system,
-  'POST /updateNotes': updateNotes,
-  'FILE /upfile': upfile
+  'GET /system': systemList,             // 文章列表页
+  'GET /system/:id': systemDetails,      // 打开发布/修改文章页
+  'POST /updateNotes': updateNotes,      // 发布/修改文章
+  'FILE /upfile': upfile                 // 上传图片
 }

@@ -1,3 +1,4 @@
+import { LoadingService } from './../public/loading/loading.service';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -9,7 +10,8 @@ export class HttpService {
 
   constructor(
     public http: HttpClient,
-    private router: Router
+    public router: Router,
+    public loadingService: LoadingService
   ) { }
 
    /* 配置请求头 */
@@ -28,6 +30,7 @@ export class HttpService {
               .retry(1)
               .subscribe(
                 res => {
+                  this.loadingService.show = false;
                   if(res['code'] == 1003){
                     this.router.navigateByUrl('/login');
                   }else{
@@ -36,6 +39,7 @@ export class HttpService {
                 },
                 err => {
                   error(err);
+                  this.loadingService.show = false;
                 }
               )
   }
@@ -45,6 +49,7 @@ export class HttpService {
               .retry(1)
               .subscribe(
                 res => {
+                  this.loadingService.show = false;
                   if(res['code'] == 1003){
                     this.router.navigateByUrl('/login');
                   }else{
@@ -52,6 +57,7 @@ export class HttpService {
                   }
                 },
                 err => {
+                  this.loadingService.show = false;
                   error(err);
                 }
               )

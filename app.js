@@ -25,9 +25,9 @@ app.use(staticCache('./static', { maxAge: maxAge}));
 const bodyparser = require('koa-bodyparser');
 app.use(bodyparser());
 
-// /* 获取文件 */
-// const koaBody = require('koa-body');
-// app.use(koaBody({ multipart: true }));
+/* 允许跨域 */
+const cors = require('koa2-cors');
+app.use(cors());
 
 /* Nunjucks模板引擎, 根据环境控制是否缓存 */
 let templating = require('./config/templating');
@@ -39,7 +39,6 @@ app.use(templating('views', {
 /* 设置路由 */
 const routes = require('./routes/routes');
 app.use(routes());
-
 
 /* 2800端口启动 */
 let port = process.env.NODE_PORT || 2800;

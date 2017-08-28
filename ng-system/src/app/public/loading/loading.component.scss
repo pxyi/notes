@@ -10,6 +10,7 @@
 	position: absolute;
 	top: 0;
   left: 0;
+	z-index: 999;
   @include transition(all .25s);
   &.active{
     opacity: 1;

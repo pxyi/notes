@@ -19,13 +19,15 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.scss"
+        "styles.scss",
+        "assets/editormd/editormd.css"
       ],
       "scripts": [
         "../node_modules/echarts/dist/echarts.min.js",
         "../node_modules/jquery/dist/jquery.min.js",
         "assets/js/base.js",
-        "assets/js/laydate/laydate.js"
+        "assets/js/laydate/laydate.js",
+        "assets/js/editormd.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

@@ -1,0 +1,107 @@
+<div class="ui-title">列表页</div>
+<div class="ui-form ui-query">
+  <div class="ui-item">
+    <div class="ui-label">标题</div>
+    <div class="ui-inline">
+      <input type="text" class="ui-input" [(ngModel)]="query.title">
+    </div>
+  </div>
+  <div class="ui-item">
+    <div class="ui-label">关键词</div>
+    <div class="ui-inline">
+      <input type="text" class="ui-input" [(ngModel)]="query.keyword">
+    </div>
+  </div>
+  <div class="ui-item">
+    <div class="ui-label">状态</div>
+    <div class="ui-inline">
+      <select class="ui-select xiala" [(ngModel)]="query.status">
+        <option value="">全部</option>
+        <option value="1">启用</option>
+        <option value="0">禁用</option>
+      </select>
+      <i class="icon-xiala"></i>
+    </div>
+  </div>
+  <div class="ui-item">
+    <div class="ui-label">分类</div>
+    <div class="ui-inline">
+      <select class="ui-select xiala" [(ngModel)]="query.parent">
+        <option value="">全部</option>
+        <option value="0">禁用</option>
+      </select>
+      <i class="icon-xiala"></i>
+    </div>
+  </div>
+  <div class="ui-item ui-linkage">
+    <div class="ui-label">创建时间</div>
+    <div class="ui-inline">
+      <div>
+          <app-datepicker 
+            [id]="'createStartTime'" 
+            [limit]="{min: 'queryTime2'}" 
+            [(value)]="query.createStartTime">
+          </app-datepicker>
+      </div>
+      <div class="ui-to">至</div>
+      <div>
+          <app-datepicker 
+            [id]="'createEndTime'" 
+            [limit]="{max: 'queryTime1'}" 
+            [(value)]="query.createEndTime">
+          </app-datepicker>
+      </div>
+      <div>
+      </div>
+    </div>
+  </div>
+  <div class="ui-query-btn">
+    <a href="javascript: void(0);" class="ui-btn" (click)="$query()">查询</a>
+  </div>
+</div>
+<div class="ui-body-table">
+  <div class="ui-table-btn">
+    <a href="javascript: void(0);" class="ui-btn small success" [routerLink]="['/home/details', 'new']">新增</a>
+  </div>
+  <table class="ui-table" ui-border ui-hover>
+    <thead>
+      <tr>
+        <th>
+          <div class="ui-checkbox-box">
+            <input type="checkbox" id="checkAll">
+            <label for="checkAll"></label>
+          </div>
+        </th>
+        <th>标题</th>
+        <th>描述</th>
+        <th>关键词</th>
+        <th>状态</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data?.result.list; let i = index;">
+        <td>
+          <div class="ui-checkbox-box">
+            <input type="checkbox" id="check{{i}}">
+            <label for="check{{i}}"></label>
+          </div>
+          </td>
+        <td>{{item?.title}}</td>
+        <td>{{item?.desc}}</td>
+        <td>{{item?.keyword}}</td>
+        <td><a href="javascript: void(0);" class="ui-btn super" [ngClass]="item?.status ? 'success' : 'error'">{{item?.status ? '正常' : '禁用'}}</a></td>
+        <td>
+          <a href="javascript: void(0);" class="ui-btn blue super" [routerLink]="['/home/details', item._id]">修改</a>
+          <a href="javascript: void(0);" class="ui-btn error super" (click)="deleteOne(item._id)">删除</a>
+        </td>
+      </tr>
+      <tr *ngIf="!data" class="ui-no-list">
+        <td colspan="6">暂无数据...</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="ui-pd-20">
+    <app-pages [url]="'article/list'" [query]="query" [(value)]="data"></app-pages>
+  </div>
+</div>

@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { WelcomeComponent } from './frames/welcome/welcome.component';
-import { ListComponent } from './home/demo/list/list.component';
-import { DetailsComponent } from './home/demo/details/details.component';
+import { ListComponent } from './home/article/list/list.component';
+import { DetailsComponent } from './home/article/details/details.component';
 import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [

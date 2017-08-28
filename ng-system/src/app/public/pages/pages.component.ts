@@ -47,13 +47,12 @@ export class PagesComponent implements OnInit {
     this.isLoading = true;
     this.query.page = page;
     this.query.count = this.pagesOption.count;
-
-    this.http.get('/api/list', this.query, res => {
+    this.http.get(this.url, this.query, res => {
       this.valueChange.emit(res);
       this.isLoading = false;
       this.pagesOption.page = res.result.page;
       this.pagesOption.count = res.result.count;
-      this.pagesOption.total = res.result.total;
+      this.pagesOption.total = Math.ceil(res.result.total/res.result.count);
     }, err => {
       console.log(err);
     })

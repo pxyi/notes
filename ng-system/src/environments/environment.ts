@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   desc: '测试环境',
-  domain: ''
+  domain: 'http://localhost:2800/notes/'
 };

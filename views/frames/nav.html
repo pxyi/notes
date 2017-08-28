@@ -4,23 +4,19 @@
   </div>
   <div class="nav-main">
     <ul>
-      <li class="active">
+      <!-- <li class="active">
         <a href="javascript:;">首页</a>
         <div class="nav-child">
           <a href="javascript: void(0);">子级</a>
           <a href="javascript: void(0);">子级</a>
           <a href="javascript: void(0);">子级</a>
         </div>
-      </li>
+      </li> -->
+      {% for nav in classItems %}
       <li>
-        <a href="javascript:;">概览</a>
+        <a href="/class/{{nav._id}}">{{nav.name}}</a>
       </li>
-      <li>
-        <a href="javascript:;">教程</a>
-      </li>
-      <li>
-        <a href="javascript:;">手册</a>
-      </li>
+      {% endfor %}
     </ul>
   </div>
   <div class="author"><a href="javascript:;">作者: phuhoang</a></div>

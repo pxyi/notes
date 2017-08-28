@@ -3,6 +3,16 @@
     <div class="prev-btn"><a href="javascript: void(0);"><i class="icon icon-xiangzuojiantou"></i></a></div>
     <div class="next-btn"><a href="javascript: void(0);"><i class="icon icon-xiangyoujiantou"></i></a></div>
     <div class="content">{{ article.content | safe }}</div>
+    <div class="article-list">
+      <ul>
+        {% for item in articleItems%}
+        <li><a href="/article/{{item._id}}">{{item.title}}</a></li>
+        {% endfor %}
+      </ul>
+      {% if articleItems.length == 0 %}
+        <div class="nodata">暂无数据</div>
+      {% endif %}
+    </div>
   </div>
 </div>
 
@@ -51,6 +61,7 @@
   .prev-btn a:hover,
   .next-btn a:hover{
     opacity: .8;
+    text-decoration: none;
   }
   .prev-btn i,
   .next-btn i{
@@ -66,5 +77,19 @@
   .content{
     max-width: 1000px;
     margin: 0 auto;
+  }
+  .article-list{
+    max-width: 1000px;
+    margin: 40px auto;
+    color: #4D4D75;
+    font-size: 18px;
+    font-weight: 300;
+  }
+  .article-list li{
+    padding-left: 40px;
+  }
+  .nodata{
+    text-align: center;
+    line-height: 300px;
   }
 </style>

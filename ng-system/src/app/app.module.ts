@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularEchartsModule } from 'ngx-echarts';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -19,8 +19,8 @@ import { NavComponent } from './frames/nav/nav.component';
 import { FooterComponent } from './frames/footer/footer.component';
 import { ContainerComponent } from './frames/container/container.component';
 import { WelcomeComponent } from './frames/welcome/welcome.component';
-import { ListComponent } from './home/demo/list/list.component';
-import { DetailsComponent } from './home/demo/details/details.component';
+import { ListComponent } from './home/article/list/list.component';
+import { DetailsComponent } from './home/article/details/details.component';
 import { PromptComponent } from './public/prompt/prompt.component';
 import { ConfirmComponent } from './public/confirm/confirm.component';
 import { LoadingComponent } from './public/loading/loading.component';
@@ -31,6 +31,8 @@ import { DatepickerComponent } from './public/datepicker/datepicker.component';
 import { LoginComponent } from './login/login.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { HomeComponent } from './home/home.component';
+import { ClassListComponent } from './home/class/class-list/class-list.component';
+import { ClassDetailsComponent } from './home/class/class-details/class-details.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { HomeComponent } from './home/home.component';
     DatepickerComponent,
     LoginComponent,
     HomeComponent,
+    ClassListComponent,
+    ClassDetailsComponent,
   ],
   imports: [
     HttpModule,
@@ -59,7 +63,8 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularEchartsModule
+    AngularEchartsModule,
+    ReactiveFormsModule
   ],
   providers: [LoadingService, PromptService, ConfirmService, HttpService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

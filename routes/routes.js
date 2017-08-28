@@ -33,8 +33,15 @@ let addMapping = (router, mapping) => {
   }
 }
 
+function error (router) {
+  router.get('*', async (ctx, next) => {
+    ctx.render('404.html');
+  })
+}
+
 module.exports = () => {
   let router = require('koa-router')();
   addControllers(router);
+  error(router);
   return router.routes();
 }

@@ -20,12 +20,18 @@ export class ListComponent implements OnInit {
   /* 请求结果 */
   public data: any;
 
+  /* 分类 */
+  public classItems: Array<any> =[];
+
   constructor(
     private http: HttpService,
     private confirmService: ConfirmService
   ) { }
 
   ngOnInit() { 
+    this.http.get('class/list', {}, (res) => {
+      this.classItems = res.result;
+    })
   }
 
   $query(): void {

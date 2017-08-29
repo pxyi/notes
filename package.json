@@ -5,6 +5,8 @@
   "author": "phuhoang",
   "scripts": {
     "start": "nodemon app",
+    "getMongo": "cd /usr/local/mongodb/bin/",
+    "mongod": "mongod --dbpath=/Users/personal/notes/mongoData/m_db/ --logpath=/Users/personal/notes/mongoData/m_log/mongodb.log --logappend",
     "dev": "export NODE_ENV=development",
     "pord": "export NODE_ENV=production",
     "build": "pm2 app"

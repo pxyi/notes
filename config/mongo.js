@@ -11,8 +11,7 @@ db.on('error', function (err) {
  * 		desc			 			描述	 				String
  *		parent		 			父级Id 				ObjectId
  *		status					状态					Boolean
- *		create_time			创建时间 			 Date
- *		update_time			修改时间       Date
+ *		createTime			创建时间 			 Date
  *		------------------------------------------
  */
 let classSchema = mongoose.Schema({
@@ -20,7 +19,7 @@ let classSchema = mongoose.Schema({
 	desc: String,
 	parent: mongoose.Schema.Types.ObjectId,
 	status: Boolean,
-	create_time: { type: Date, default: Date.now() }
+	createTime: { type: Date, default: Date.now() }
 });
 
 /*
@@ -35,8 +34,7 @@ let classSchema = mongoose.Schema({
  * 		content					内容					String
  *		parent		 			所属分类 			 ObjectId
  *		status					状态					Boolean
- *		create_time			创建时间 			 Date
- *		update_time			修改时间       Date
+ *		createTime			创建时间 			 Date
  *		------------------------------------------
  */
 let articleSchema = mongoose.Schema({
@@ -50,8 +48,7 @@ let articleSchema = mongoose.Schema({
 	content: String,
 	parent: mongoose.Schema.Types.ObjectId,
 	status: Boolean,
-	create_time: { type: Date, default: Date.now() },
-	uptade_time: Date,
+	createTime: { type: Date, default: Date.now() }
 });
 
 

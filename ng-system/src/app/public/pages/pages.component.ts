@@ -43,11 +43,17 @@ export class PagesComponent implements OnInit {
   public pagesOption: Page = new Page();
 
   /* 请求方法 */
-  queryDatas(page: number = 1): void{
+  queryDatas(page?): void{
     this.isLoading = true;
-    this.query.page = page;
+    this.query.page = this.pagesOption.count;
     this.query.count = this.pagesOption.count;
-    this.http.get(this.url, this.query, res => {
+    let query = {};
+    for(let q in this.query){
+      if(this.query[q] !== null && this.query[q] !== '' && this.query[q] !== undefined){
+        query[q] = this.query[q];
+      }
+    }
+    this.http.get(this.url, query, res => {
       this.valueChange.emit(res);
       this.isLoading = false;
       this.pagesOption.page = res.result.page;

@@ -2,10 +2,16 @@
   <div class="container-box">
     <div class="prev-btn"><a href="javascript: void(0);"><i class="icon icon-xiangzuojiantou"></i></a></div>
     <div class="next-btn"><a href="javascript: void(0);"><i class="icon icon-xiangyoujiantou"></i></a></div>
-    <div class="content">{{ article.content | safe }}</div>
     <div class="article-list">
-      <ul></ul>
+      <ul>
+        {% for item in articleItems%}
+          <li><a href="/article/{{item._id}}">{{item.title}}</a></li>
+        {% endfor %}
+      </ul>
     </div>
+    {% if articleItems.length == 0 %}
+      <div class="nodata">暂无数据</div>
+    {% endif %}
   </div>
 </div>
 
@@ -82,7 +88,16 @@
     padding-left: 40px;
   }
   .nodata{
+    width: 200px;
+    color: #999;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 300;
     text-align: center;
-    line-height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -85px;
+    margin-left: -100px;
   }
 </style>

@@ -90,9 +90,9 @@ export class DetailsComponent implements OnInit {
   save(): void {
     if(this.formModel.invalid){return;}
     let params = this.formModel.value;
-    params.id = this.id
-    params.markdown = this.editor.getMarkdown(),
-    params.content = $('.editormd-preview').html()
+    params.id = this.id;
+    params.markdown = this.editor.getMarkdown();
+    params.content = $('.editormd-preview').html();
     this.http.loadingService.show = true;
     this.http.post('article/update', params, (res) => {
       this.promptService.show(res.message, () => {

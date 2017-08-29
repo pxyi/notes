@@ -23,7 +23,7 @@ let classFind = async (ctx, next) => {
 	let id = ctx.params.id;
 	let classItems = await db.classModel.find();
 	let title = classItems.filter( (res) => res._id == id)[0].name
-	let result = await db.articleModel.find({parent: id});
+	let result = await db.articleModel.find({parent: id, status: true});
 	ctx.render('index.html', {
 		title: title,
     classItems: classItems,

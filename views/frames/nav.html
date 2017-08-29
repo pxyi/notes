@@ -1,6 +1,6 @@
 <div class="nav">
   <div class="search">
-    <input placeholder="输入并搜索" />
+    <input placeholder="输入并搜索" id="search" />
   </div>
   <div class="nav-main">
     <ul>
@@ -98,3 +98,38 @@
     font-size: 14px;
   }
 </style>
+<script>
+  var setTime;
+  $('#search').on('input', function () {
+    var _this = $(this);
+    clearTimeout(setTime);
+    setTime = setTimeout(function (){
+      if(_this.val().length > 0){
+        $.ajax({
+          url: '/notes/article/list',
+          type: 'get',
+          data: {
+            title: _this.val(),
+            page: 1,
+            count: 10
+          },
+          dataType: 'json',
+          success: function (res) {
+            if(res.code == 1000 && res.result.list.length){
+              $('.content').html('');
+              $('.nodata').hide();
+              var str = "";
+              for(var i = 0, l = res.result.list; i < l.length; i++){
+                str += "<li><a href='/article/"+ l[i]._id +"'>"+ l[i].title +"</a></li>";
+              }
+              $('.article-list ul').html(str);
+            }else{
+              $('.article-list ul').html('');
+              $('.nodata').show().html('无搜索结果');
+            }
+          }
+        })
+      }
+    }, 500)
+  })
+</script>

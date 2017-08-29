@@ -12,7 +12,6 @@ let articleList = async (ctx, next) => {
   let articleList = await db.articleModel.find(query).skip((Number(params.page) - 1) * params.count).limit(Number(params.count));
   let articleCount = await db.articleModel.count();
 
-
   ctx.body = {
     code: 1000,
     message: '请求成功',
@@ -25,9 +24,9 @@ let articleList = async (ctx, next) => {
   }
 }
 
-
 let articleUpdate = async (ctx, next) => {
   let params = ctx.request.body || {};
+  params.keyword = params.keyword.split('|');
   if(params.id == 'new'){
     delete params.id;
     let entity = new db.articleModel(params);
@@ -47,6 +46,7 @@ let articleUpdate = async (ctx, next) => {
 let articleDetails = async (ctx, next) => {
   let id = ctx.query.id;
   let result = await db.articleModel.findById(id);
+  result.keyword = result.keyword.join('|');
   ctx.body = {
     code: result ? 1000 : 1001,
     message: result ? '查询成功' : '查询失败',
@@ -66,7 +66,7 @@ let articleDelete = async (ctx, next) => {
 let articleDetailsHTML = async (ctx, next) => {
   let classItems = await db.classModel.find();
   let article = await db.articleModel.findOne({'_id': ctx.params.id});
-  ctx.render('index.html',{
+  ctx.render('details.html',{
     title: article.title,
     classItems: classItems,
     article: article

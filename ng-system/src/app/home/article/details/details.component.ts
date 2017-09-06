@@ -82,7 +82,7 @@ export class DetailsComponent implements OnInit {
       imageUpload : true,
       emoji: true,
       imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-      imageUploadURL : "/notes/upfile"
+      imageUploadURL : "http://localhost:2800/notes/upfile"
     });
   }
 
@@ -101,6 +101,17 @@ export class DetailsComponent implements OnInit {
         }
       })
     });
+  }
+
+  /* 上传图片 */
+  upfile(files): void {
+    if(files.length){
+      let formData = new FormData();
+      formData.append('img1', files[0]);
+      this.http.upfile('upfile', formData, res => {
+        console.log(res);
+      })
+    }
   }
 
 }

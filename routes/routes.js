@@ -20,13 +20,16 @@ let addMapping = (router, mapping) => {
   for(let url in mapping) {
     if(url.startsWith('GET ')){
       let path = url.substring(4);
-      router.get(path, mapping[url])
+      router.get(path, mapping[url]);
     }else if(url.startsWith('POST ')){
       let path = url.substring(5);
       router.post(path, mapping[url])
     }else if(url.startsWith('FILE ')){
       let path = url.substring(5);
       router.post(path, koaBody({ multipart: true }), mapping[url])
+    }else if(url.startsWith('ALL ')){
+      let path = url.substring(4);
+      router.use(path, mapping[url]);
     }else{
       console.log(`invalid URL: ${url}`);
     }

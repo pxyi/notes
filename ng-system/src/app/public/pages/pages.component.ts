@@ -45,7 +45,7 @@ export class PagesComponent implements OnInit {
   /* 请求方法 */
   queryDatas(page?): void{
     this.isLoading = true;
-    this.query.page = this.pagesOption.count;
+    this.query.page = this.pagesOption.page;
     this.query.count = this.pagesOption.count;
     let query = {};
     for(let q in this.query){

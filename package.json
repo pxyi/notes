@@ -4,21 +4,22 @@
   "version": "1.0.0",
   "author": "phuhoang",
   "scripts": {
-    "start": "nodemon app",
-    "getMongo": "cd /usr/local/mongodb/bin/",
+    "start": "export NODE_ENV=development && nodemon app",
+    "build": "export NODE_ENV=production && pm2 start app.js --name=notes",
+    "getmongo": "cd /usr/local/mongodb/bin",
     "mongod": "mongod --dbpath=/Users/personal/notes/mongoData/m_db/ --logpath=/Users/personal/notes/mongoData/m_log/mongodb.log --logappend",
     "dev": "export NODE_ENV=development",
-    "pord": "export NODE_ENV=production",
-    "build": "pm2 app"
+    "pord": "export NODE_ENV=production"
   },
   "dependencies": {
     "koa": "^2.3.0",
+    "koa-body": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-gzip": "^0.1.0",
     "koa-router": "^7.2.1",
     "koa-static-cache": "^5.1.1",
     "koa2-cors": "^2.0.3",
-    "mongoose": "^4.11.7",
+    "mongoose": "^4.11.9",
     "nodemon": "^1.11.0",
     "nunjucks": "^3.0.1",
     "pm2": "^2.6.1",

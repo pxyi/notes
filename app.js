@@ -37,7 +37,7 @@ app.use(templating('views', {
 }));
 
 /* 设置路由 */
-const routes = require('./routes/routes');
+const routes = require('./routes/route_config');
 app.use(routes());
 
 /* 2800端口启动 */

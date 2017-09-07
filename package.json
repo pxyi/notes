@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "koa": "^2.3.0",
-    "koa-body": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-gzip": "^0.1.0",
+    "koa-multer": "^1.0.2",
     "koa-router": "^7.2.1",
     "koa-static-cache": "^5.1.1",
     "koa2-cors": "^2.0.3",

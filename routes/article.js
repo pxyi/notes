@@ -1,4 +1,5 @@
 const db = require('../config/mongo');
+const fs = require('fs');
 
 let articleList = async (ctx, next) => {
   let params = ctx.query.page ? ctx.query : {page: 1,count: 10};
@@ -73,15 +74,6 @@ let articleDetailsHTML = async (ctx, next) => {
   });
 }
 
-
-let upfile = async (ctx, next) => {
-  console.log(ctx.request.body.files);
-  ctx.body = {
-    success: 1,
-    url: 'https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png'
-  }
-}
-
 module.exports = {
   'GET /article/:id': articleDetailsHTML,
 
@@ -89,6 +81,4 @@ module.exports = {
   'GET /notes/article/details': articleDetails,       // 文章详情
   'POST /notes/article/update': articleUpdate,        // 发布/修改文章
   'GET /notes/article/delete': articleDelete,         // 删除文章
-
-  'FILE /notes/upfile': upfile                 // 上传图片
 }
